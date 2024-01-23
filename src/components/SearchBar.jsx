@@ -9,9 +9,6 @@ const SearchBar = ({ setQuery, setCategory, setActivateSearch }) => {
         placeholder="Enter a search term..."
         className="border px-3 py-2 w-64"
       />
-      <button onClick={() => setActivateSearch(true)} className="border bg-gray-100 px-3 py-2">
-        Search
-      </button>
       <select
         onChange={(e) => {
           setCategory(e.target.value);
@@ -25,6 +22,9 @@ const SearchBar = ({ setQuery, setCategory, setActivateSearch }) => {
           </option>
         ))}
       </select>
+      <button onClick={() => setActivateSearch(true)} className="border bg-gray-100 px-3 py-2">
+        Search
+      </button>
     </div>
   );
 };
