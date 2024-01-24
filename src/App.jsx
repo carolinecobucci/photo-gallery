@@ -5,6 +5,7 @@ import axios from "axios";
 import EnlargedPhoto from "./components/EnlargedPhoto";
 import PhotoList from "./components/PhotoList";
 import SearchBar from "./components/SearchBar";
+import Skeleton from "./components/Skeleton";
 
 function App() {
   const [photos, setPhotos] = useState([]);
@@ -64,6 +65,7 @@ function App() {
       />
       <PhotoList photos={photos} setEnlargedPhoto={setEnlargedPhoto} />
       {enlargedPhoto && <EnlargedPhoto photo={enlargedPhoto} setEnlargedPhoto={setEnlargedPhoto} />}
+      <Skeleton />
     </div>
   );
 }

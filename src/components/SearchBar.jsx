@@ -22,7 +22,10 @@ const SearchBar = ({ setQuery, setCategory, setActivateSearch }) => {
           </option>
         ))}
       </select>
-      <button onClick={() => setActivateSearch(true)} className="border bg-gray-100 px-3 py-2">
+      <button
+        onClick={() => setActivateSearch(true)}
+        className="border bg-gray-100 px-3 py-2 hover:bg-gray-200"
+      >
         Search
       </button>
     </div>
