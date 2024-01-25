@@ -5,7 +5,6 @@ import axios from "axios";
 import EnlargedPhoto from "./components/EnlargedPhoto";
 import PhotoList from "./components/PhotoList";
 import SearchBar from "./components/SearchBar";
-import Skeleton from "./components/Skeleton";
 
 function App() {
   const [photos, setPhotos] = useState([]);
@@ -13,6 +12,15 @@ function App() {
   const [category, setCategory] = useState("");
   const [enlargedPhoto, setEnlargedPhoto] = useState(null);
   const [activateSearch, setActivateSearch] = useState(false);
+
+  // 1- extrair as requisicoes axios e colocar em outro arquivo
+  // 2- trocar fetchData por createQuery, que seria somente o if statement
+  // 3- ai sim, usar o useQuery
+  // const { data: photos, isLoading } = useQuery({
+  //   queryKey: ["photos", apiKey, searchQuery],
+  //   queryFn: () => fetchPhotos(apiKey, searchQuery),
+  //   enabled: apiKey && searchQuery,
+  // });
 
   const fetchData = async ({ query, category }) => {
     const apiKey = import.meta.env.VITE_UNSPLASH_API_KEY;
@@ -65,7 +73,6 @@ function App() {
       />
       <PhotoList photos={photos} setEnlargedPhoto={setEnlargedPhoto} />
       {enlargedPhoto && <EnlargedPhoto photo={enlargedPhoto} setEnlargedPhoto={setEnlargedPhoto} />}
-      <Skeleton />
     </div>
   );
 }
